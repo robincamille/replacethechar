@@ -23,11 +23,11 @@ reload(sys)
 sys.setdefaultencoding("utf-8")
 
 
-partition = -1 #set to -1 for whole file
+partition = 10000 #set to -1 for whole file
 
 def returnNames(url):
         
-    theurl = url
+    theurl = "http://www.ccel.org/ccel/bible/kjv.txt"
     #raw_input("URL to .txt file: ")
     sourcefile = urllib2.urlopen(theurl)
     source = sourcefile.read()
@@ -67,7 +67,7 @@ def returnNames(url):
     
     print '\nMost common names:'
     print '\t'.join(chars)
-    return chars
+    return chars,source 
 
 #locfolder = r'C:\Users\SONY\SkyDrive\\'
 locfolder = ""
@@ -78,14 +78,39 @@ with open(locfolder+locx,'r') as f:
 
 for r in rows:
     for ri in r:
-        print ri
+        print ri  #page 1, input needs to be selected
     print    
 
+index = int(raw_input("Enter the selected Book index ")) #selected i/p
+data = rows[index+2]
+
+print data[0],  #page 2 book title
+name,src = returnNames(data[2]) #data[2] is the url to be fetched
+print name  #page 2, input to be typed in
+data.append(name)
+
+print data #print everything except src
+
+newTitle = raw_input(" Rename the Book ") #page 3
+auth = data[1]
+print (newTitle," by ", auth) #page 4 top
+
+newNames = []
+namesOfPpl = data[3] #d[3] is the names col
+for n in namesOfPpl: 
+    nn = raw_input("Enter the New Name for "+n)
+    newNames.append(nn)
+
+print "Featuring "
+
+OutputFile = src
+for i in range(5):
+    print newNames[i]," as : ",namesOfPpl[i] #page 4 complete
+    OutputFile = re.sub(namesOfPpl[i],newNames[i],OutputFile)
 
 
-for s in rows[2:6]:
-    print s[0],
-    print returnNames(s[2])
-
+Out = open(newTitle+".txt",'w') #page 5
+Out.write(OutputFile)
+Out.close()
 
 print "Done"
