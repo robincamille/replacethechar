@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>You replace the characters</title>
+<title>Replace the characters in your favorite book</title>
 <link rel='stylesheet' href='../static/bootstrap-theme.css' type='text/css' media='all' />
 <link rel='stylesheet' href='../static/bootstrap-rcd.css' type='text/css' media='all' />
-<link href='https://fonts.googleapis.com/css?family=Lora|Lato:900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lora:400,400italic,700|Lato:900' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
+
     <h1 style="text-align:center;margin-top:25%">Replace the characters in your favorite book.</h1>
     <h2 style="text-align:center">Gift it to a friend.</h2>
     
-    <div class="formblock" id="choosetext">
-    <form action="/" method="POST" name="titles">
     
+    <!-- Pick a book ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+    <div class="formblock" id="choosetext">
+    <form action="/" method="POST" name="titles">    
     <div class="form-group">
     <h3>Pick a book.</h3>
     <select name="titlelist" class="form-control">
@@ -29,6 +33,9 @@
     </form>
     </div>
     
+    
+	<!-- Character names ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
     <form action="/" method="POST">
     <div class="formblock" id="choosetext">
     <!--You've chosen {{ index }}!-->
@@ -46,6 +53,10 @@
         <p class="bg-warning" style="padding:15px;font-size:.8em;margin-top:5px"><strong>How were these characters chosen?</strong> These are the top 5 most frequently occurring personal names, without considering first/last names.</p>
 </div>        
         
+        
+        
+ 	<!-- Rename book & submit your name ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
 	<div class="formblock" id="choosetext">
 
         <h3>Rename the book if you wish:</h3>
@@ -60,10 +71,14 @@
     </div>
     </form>
     
+    
+    <!-- Output ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    
 <div class="formblock" id="choosetext">
 	<h3>Behold! Your creation:</h3>
-	<h2 style="color:#000;text-align:center">{{ newtitle }} by {{ author }} and {{ username }}</h2>
-	<p style="text-align:center">Featuring</p>
+	<hr/>
+	<h2 style="color:#000;text-align:center;text-shadow:none;">{{ newtitle }} by {{ author }} and {{ username }}</h2>
+	<p style="text-align:center"><em>Featuring</em></p>
 	<table id="featuring">
 	<tr><td>{{ name1 }}</td><td>as</td><td>{{ char1 }}</td></tr>	
 	<tr><td>{{ name2 }}</td><td>as</td><td>{{ char2 }}</td></tr>

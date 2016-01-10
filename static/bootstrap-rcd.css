@@ -17,21 +17,17 @@ body {
   background-repeat: no-repeat;	
   background-attachment: fixed;
 }
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block;
+h1 {
+  margin: .67em 0;
+  font-size: 3em;
+  color:#FFF;
+  text-shadow:-2px 2px #000;
+}
+h2 {
+  margin: .67em 0;
+  font-size: 1.5em;
+  color:#FFF;
+  text-shadow:-2px 2px #000;
 }
 .formblock {
     background-color: #FFF;
@@ -57,6 +53,21 @@ summary {
 	text-align:center;
 	padding:4px;
 	}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
 audio,
 canvas,
 progress,
@@ -88,18 +99,6 @@ strong {
 }
 dfn {
   font-style: italic;
-}
-h1 {
-  margin: .67em 0;
-  font-size: 3em;
-  color:#FFF;
-  text-shadow:-2px 2px #5cb85c;
-}
-h2 {
-  margin: .67em 0;
-  font-size: 1.5em;
-  color:#FFF;
-  text-shadow:-2px 2px #5cb85c;
 }
 mark {
   color: #000;
