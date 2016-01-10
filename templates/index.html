@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>You replace the characters</title>
+<link rel='stylesheet' href='static/bootstrap-theme.css' type='text/css' media='all' />
+<link rel='stylesheet' href='static/bootstrap-rcd.css' type='text/css' media='all' />
+<link href='https://fonts.googleapis.com/css?family=Lora|Lato:900' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <h1 style="text-align:center">You replace the characters!<sup style="color:#dff0d8;font-size:.6em">BETA</sup></h1>
+    
+    <div class="formblock" id="choosetext">
+    <form action="/" method="POST" name="titles">
+    
+    <div class="form-group">
+    <h3>Choose your text</h3>
+    <select name="titlelist" class="form-control">
+		<option value="1">The Kama Sutra of Vatsyayana by Vatsyayana</option>
+		<option value="2">The Legends Of King Arthur And His Knights by James Knowles</option>
+		<option value="3">Robin Hood by J. Walker McSpadden</option>
+		<option value="4">Dracula by Bram Stoker</option>
+    </select>
+    </div>
+        <input type="submit" name="titleform" value="Next" style="margin:0 auto" class="btn btn-success">
+        
+    </form>
+    </div>
+    
+    
+    <div class="formblock" id="choosetext">
+    You've chosen {{ index }}!
+    <h3>Rename the top characters</h3>
+        <form action="/" method="POST">
+
+        <!--<label class="leftlabel">[{{ name }}]</label>
+        <input type="text" name="input1" class="rightinput form-control">
+        <label class="leftlabel">[{{ name }}]</label>
+        <input type="text" name="input1" class="rightinput form-control">
+        <label class="leftlabel">[{{ name }}]</label>
+        <input type="text" name="input1" class="rightinput form-control">
+        <label class="leftlabel">[{{ name }}]</label>
+        <input type="text" name="input1" class="rightinput form-control">-->
+        <p class="bg-warning" style="padding:15px;font-size:.8em;margin-top:5px"><strong>How were these characters chosen?</strong> These are the top 5 most frequently occurring personal names, without considering first/last names.</p>
+        <input type="submit" name="charform" value="Next" class="btn btn-success">
+    </form>
+    </div>
+    
+<p style="color:#FFF">Image credit: "Group of readers in the library of the Jewish Alliance, ca.1900," California Historical Society Collection, 1860-1960, USC. <a href="http://digitallibrary.usc.edu/cdm/ref/collection/p15799coll65/id/25296">Link</a>.</p>
+</body>
+</html>
