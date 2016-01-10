@@ -20,22 +20,20 @@ def titleform():
         return render_template('names.html',
                                titlechosen = selecttext(int(title)-1))
 
-
-#currently does not render names :(
+        
+        
+#currently does not render names, don't know why 
 @app.route('/names', methods=['GET', 'POST'])
-def nameform(titlechosen, names = None):
+def nameform(titlechosen, nameslist = None):
     if request.method == 'GET':
-        #names = printnames(titlechosen)
-        #names = ['God', 'James', 'Christ', 'Almighty', 'Call']
-        names = 'It me' 
-        return render_template('names.html', names = names)
+        nameslist = ['God', 'James', 'Christ', 'Almighty', 'Call']
+        return render_template('names.html', names = nameslist)
     else: # POST
-        #title = request.form['names']
         nameschosen = request.form['nameschosenform']
         return render_template('end.html', nameschosen)
 
 
-#finish form page is not done
+#finish form page is not done; no flask variables there
 #input nameschosen, output downloadable text
 @app.route('/finish', methods=['GET', 'POST'])
 def finishform(nameschosen, namesOfPpl = None):
