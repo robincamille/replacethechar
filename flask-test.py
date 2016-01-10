@@ -6,7 +6,7 @@
 from flask import Flask
 from flask import request
 from flask import render_template
-from nerWithInput import *
+from nerWithInputFun import *
 
 app = Flask(__name__)
 
