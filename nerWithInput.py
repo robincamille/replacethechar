@@ -9,29 +9,31 @@
 ##
 ##Caveats: first/last names and honorifics not considered
 
-"""
+
 import urllib2
+import re
 from nltk import tree
 from nltk import word_tokenize as tok
 from nltk import pos_tag as postag
 from nltk import ne_chunk as ne
 from nltk.corpus import gutenberg as gb
 from collections import Counter
-"""
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
+
+partition = -1 #set to -1 for whole file
 
 def returnNames(url):
-    chars = []
-    for no in range(5):
-        chars.append(url+str(no))
-    return chars
-"""    
-    theurl = raw_input("URL to .txt file: ")
+        
+    theurl = url
+    #raw_input("URL to .txt file: ")
     sourcefile = urllib2.urlopen(theurl)
     source = sourcefile.read()
     
-    
     #Tokenize
-    sourcetok = tok(source)
+    sourcetok = tok(source[:partition])
     
     #Tag POS
     sourcetag = postag(sourcetok)
@@ -65,9 +67,10 @@ def returnNames(url):
     
     print '\nMost common names:'
     print '\t'.join(chars)
+    return chars
 
-"""
-locfolder = r'C:\Users\SONY\SkyDrive\\'
+#locfolder = r'C:\Users\SONY\SkyDrive\\'
+locfolder = ""
 locx = "20 books from gutenberg - Sheet1.csv"
 
 with open(locfolder+locx,'r') as f:
@@ -80,8 +83,9 @@ for r in rows:
 
 
 
-for s in rows[2:]:
+for s in rows[2:6]:
+    print s[0],
     print returnNames(s[2])
 
 
-print returnNames("1")
+print "Done"
