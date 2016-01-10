@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block content %}
+
+<!-- Character names ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+    <form action="/" method="POST">
+    <div class="formblock" id="choosetext">
+    <br/>You've chosen <strong><em>{{ titlechosen }}</em></strong>. Good choice!
+    <h3>Rename the top characters</h3>
+    <p><em>Loading...</em></p>
+    
+    {% if names %}
+	<p>{{ names }}</p>
+	{% else %}
+	<p>No names :(</p>
+	{% endif %}
+	
+    <form action="/" method="POST" name="nameschosenform">    
+
+    	{% for name in names %}
+        <label class="leftlabel">{{ name }}</label>
+        <input type="text" name="nameinput" class="rightinput form-control">
+        {% endfor %}
+    
+    <center>
+    <input type="submit" name="namesform" value="Next" style="margin:0 auto" class="btn btn-success">
+	</center>
+        </form>
+        <p class="bg-warning" style="padding:15px;font-size:.8em;margin-top:15px"><strong>How were these characters chosen?</strong> These are the top 5 most frequently occurring personal names, without considering first/last names.</p>
+</div> 
+
+{% endblock %}

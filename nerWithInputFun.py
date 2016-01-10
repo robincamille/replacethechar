@@ -50,8 +50,9 @@ def returnNames(url):
             if n.label() == 'PERSON':
                 for m in n:
                     charsall.append(m[0])
-    
-    honorifics = ['Mr.', 'Mrs.', 'Ms.', 'Miss', 'Dr.', 'Prof.', 'Professor', 'Lord', 'Lady', 'Sir', 'Madam', 'Dame', 'Rev.', 'Rabbi']
+
+    #exclude from names:
+    honorifics = ['Mr.', 'Mrs.', 'Ms.', 'Miss', 'Dr.', 'Prof.', 'Professor', 'Lord', 'Lady', 'Sir', 'Madam', 'Dame', 'Rev.', 'Rabbi', 'Version', 'Gutenberg']
     
     charsallnames = []
     for s in charsall:
@@ -68,8 +69,8 @@ def returnNames(url):
     for s in charscommon:
         chars.append(s[0])
     
-    print '\nMost common names:'
-    print '\t'.join(chars)
+    #print '\nMost common names:'
+    #print '\t'.join(chars)
     return chars,source 
 
 #locfolder = r'C:\Users\SONY\SkyDrive\\'
@@ -94,27 +95,28 @@ def selecttext(index):
 
 #print data[0],  #page 2 book title
 
-def printnames():
+def printnames(index):
+    data = rows[index+2]
     name,src = returnNames(data[2]) #data[2] is the url to be fetched
-    print name  #page 2, input to be typed in
     data.append(name)
+    return name  #page 2, input to be typed in
 
 ##    print data #print everything except src
 ##    newTitle = raw_input(" Rename the Book ") #page 3
 ##    auth = data[1]
 ##    print (newTitle," by ", auth) #page 4 top
 
-def selectnames():
+##def selectnames():
+##
+##    newNames = []
+##    namesOfPpl = data[3] #d[3] is the names col
+##    for n in namesOfPpl: 
+##        nn = raw_input("Enter the New Name for "+n)
+##        newNames.append(nn)
+##
+##    print "Featuring "
 
-    newNames = []
-    namesOfPpl = data[3] #d[3] is the names col
-    for n in namesOfPpl: 
-        nn = raw_input("Enter the New Name for "+n)
-        newNames.append(nn)
-
-    print "Featuring "
-
-def outputfile():
+def outputfile(newNames):
     OutputFile = src
     for i in range(5):
         print newNames[i]," as : ",namesOfPpl[i] #page 4 complete

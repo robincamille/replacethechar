@@ -4,13 +4,13 @@
 <title>Replace the characters in your favorite book</title>
 
 <!-- Remove ../ before static when running Flask -->
-<link rel='stylesheet' href='../static/bootstrap-theme.css' type='text/css' media='all' />
-<link rel='stylesheet' href='../static/bootstrap-rcd.css' type='text/css' media='all' />
+<link rel='stylesheet' href='static/bootstrap-theme.css' type='text/css' media='all' />
+<link rel='stylesheet' href='static/bootstrap-rcd.css' type='text/css' media='all' />
 <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic,700|Lato:900' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-
+{% block content %}
     <h1 style="text-align:center;margin-top:25%">Replace the characters in your favorite book.</h1>
     <h2 style="text-align:center">Gift it to a friend.</h2>
     
@@ -21,11 +21,27 @@
     <form action="/" method="POST" name="titles">    
     <div class="form-group">
     <h3>Pick a book.</h3>
-    <select name="titlelist" class="form-control">
-		<option value="1">The Kama Sutra of Vatsyayana by Vatsyayana</option>
-		<option value="2">The Legends Of King Arthur And His Knights by James Knowles</option>
-		<option value="3">Robin Hood by J. Walker McSpadden</option>
-		<option value="4">Dracula by Bram Stoker</option>
+    <select name="titles" class="form-control">
+<option value="1">Dr. Jekyll and Mr. Hyde</option>
+<option value="2">The Kama Sutra of Vatsyayana</option>
+<option value="3">The Legends of King Arthur and His Knights</option>
+<option value="4">Robin Hood</option>
+<option value="5">Dracula</option>
+<option value="6">Heart of Darkness</option>
+<option value="7">The Scarlet Letter</option>
+<option value="8">20,000 Leagues Under the Sea</option>
+<option value="9">The Picture of Dorian Gray</option>
+<option value="10">Hamlet</option>
+<option value="11">The Tragedie of Macbeth</option>
+<option value="12">A Princess of Mars</option>
+<option value="13">Pride and Prejudice</option>
+<option value="14">Alice's Adventures in Wonderland</option>
+<option value="15">A Tale of Two Cities</option>
+<option value="16">Frankenstein or The Modern Prometheus</option>
+<option value="17">Great Expectations</option>
+<option value="18">Emma</option>
+<option value="19">Ulysses</option>
+<option value="20">The King James Bible</option>
     </select>
     </div>
     <center>
@@ -35,29 +51,12 @@
     </form>
     </div>
     
-    
-	<!-- Character names ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-    <form action="/" method="POST">
-    <div class="formblock" id="choosetext">
-    <!--You've chosen {{ index }}!-->
-    <h3>Rename the top characters</h3>
-        <label class="leftlabel">[{{ name1 }}]</label>
-        <input type="text" name="char2" class="rightinput form-control">
-        <label class="leftlabel">[{{ name2 }}]</label>
-        <input type="text" name="char3" class="rightinput form-control">
-        <label class="leftlabel">[{{ name3 }}]</label>
-        <input type="text" name="char4" class="rightinput form-control">
-        <label class="leftlabel">[{{ name4 }}]</label>
-        <input type="text" name="char5" class="rightinput form-control">
-        <label class="leftlabel">[{{ name5 }}]</label>
-        <input type="text" name="input1" class="rightinput form-control">
-        <p class="bg-warning" style="padding:15px;font-size:.8em;margin-top:5px"><strong>How were these characters chosen?</strong> These are the top 5 most frequently occurring personal names, without considering first/last names.</p>
-</div>        
+	       
         
         
         
- 	<!-- Rename book & submit your name ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+ 	<!-- Rename book & submit your name ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	<div class="formblock" id="choosetext">
 
@@ -73,32 +72,14 @@
     </div>
     </form>
     
+    -->
     
-    <!-- Output ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    
-<div class="formblock" id="choosetext">
-	<h3>Behold! Your creation:</h3>
-	<hr/>
-	<h2 style="color:#000;text-align:center;text-shadow:none;">{{ newtitle }} by {{ author }} and {{ username }}</h2>
-	<p style="text-align:center"><em>Featuring</em></p>
-	<table id="featuring">
-	<tr><td>{{ name1 }}</td><td>as</td><td>{{ char1 }}</td></tr>	
-	<tr><td>{{ name2 }}</td><td>as</td><td>{{ char2 }}</td></tr>
-	<tr><td>{{ name3 }}</td><td>as</td><td>{{ char3 }}</td></tr>
-	<tr><td>{{ name4 }}</td><td>as</td><td>{{ char4 }}</td></tr>
-	<tr><td>{{ name5 }}</td><td>as</td><td>{{ char5 }}</td></tr>
-	</table>
-
-<center>
-<input class="btn btn-success" value="Click to generate ebook & send to friends" style="width:500px; margin:20px auto"/>
-</center>
-</div>
 
 <div class="formblock" style="margin-top:100px">
 <p><br/><strong>About this project:</strong> This web app was created as part of <a href="http://codexhackathon.com/">CODEX 2016</a> hackathon by Jihii Jolly, Krishna Gadia, and Robin Camille Davis.</p>
 <p>Image credit: "Group of readers in the library of the Jewish Alliance, ca.1900," California Historical Society Collection, 1860-1960, USC. <a href="http://digitallibrary.usc.edu/cdm/ref/collection/p15799coll65/id/25296">Link</a>.</p>
 </div>
-
+{% endblock %}
 
 </body>
 </html>
