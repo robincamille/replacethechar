@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
 <title>You replace the characters</title>
-<link rel='stylesheet' href='static/bootstrap-theme.css' type='text/css' media='all' />
-<link rel='stylesheet' href='static/bootstrap-rcd.css' type='text/css' media='all' />
+<link rel='stylesheet' href='../static/bootstrap-theme.css' type='text/css' media='all' />
+<link rel='stylesheet' href='../static/bootstrap-rcd.css' type='text/css' media='all' />
 <link href='https://fonts.googleapis.com/css?family=Lora|Lato:900' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <h1 style="text-align:center">You replace the characters!<sup style="color:#dff0d8;font-size:.6em">BETA</sup></h1>
+    <h1 style="text-align:center;margin-top:25%">Replace the characters in your favorite book.</h1>
+    <h2 style="text-align:center">Gift it to a friend.</h2>
     
     <div class="formblock" id="choosetext">
     <form action="/" method="POST" name="titles">
     
     <div class="form-group">
-    <h3>Choose your text</h3>
+    <h3>Pick a book.</h3>
     <select name="titlelist" class="form-control">
 		<option value="1">The Kama Sutra of Vatsyayana by Vatsyayana</option>
 		<option value="2">The Legends Of King Arthur And His Knights by James Knowles</option>
@@ -21,30 +22,66 @@
 		<option value="4">Dracula by Bram Stoker</option>
     </select>
     </div>
-        <input type="submit" name="titleform" value="Next" style="margin:0 auto" class="btn btn-success">
+    <center>
+    <input type="submit" name="titleform" value="Next" style="margin:0 auto" class="btn btn-success">
+    </center>
         
     </form>
     </div>
     
-    
+    <form action="/" method="POST">
     <div class="formblock" id="choosetext">
-    You've chosen {{ index }}!
+    <!--You've chosen {{ index }}!-->
     <h3>Rename the top characters</h3>
-        <form action="/" method="POST">
-
-        <!--<label class="leftlabel">[{{ name }}]</label>
+        <label class="leftlabel">[{{ name1 }}]</label>
+        <input type="text" name="char2" class="rightinput form-control">
+        <label class="leftlabel">[{{ name2 }}]</label>
+        <input type="text" name="char3" class="rightinput form-control">
+        <label class="leftlabel">[{{ name3 }}]</label>
+        <input type="text" name="char4" class="rightinput form-control">
+        <label class="leftlabel">[{{ name4 }}]</label>
+        <input type="text" name="char5" class="rightinput form-control">
+        <label class="leftlabel">[{{ name5 }}]</label>
         <input type="text" name="input1" class="rightinput form-control">
-        <label class="leftlabel">[{{ name }}]</label>
-        <input type="text" name="input1" class="rightinput form-control">
-        <label class="leftlabel">[{{ name }}]</label>
-        <input type="text" name="input1" class="rightinput form-control">
-        <label class="leftlabel">[{{ name }}]</label>
-        <input type="text" name="input1" class="rightinput form-control">-->
         <p class="bg-warning" style="padding:15px;font-size:.8em;margin-top:5px"><strong>How were these characters chosen?</strong> These are the top 5 most frequently occurring personal names, without considering first/last names.</p>
+</div>        
+        
+	<div class="formblock" id="choosetext">
+
+        <h3>Rename the book if you wish:</h3>
+        <input type="text" name="newtitle" class="form-control">
+        <br/>
+        <label>Your name:</label>
+        <input type="text" name="username" class="form-control">
+
+    <center>
         <input type="submit" name="charform" value="Next" class="btn btn-success">
-    </form>
+    </center>
     </div>
+    </form>
     
-<p style="color:#FFF">Image credit: "Group of readers in the library of the Jewish Alliance, ca.1900," California Historical Society Collection, 1860-1960, USC. <a href="http://digitallibrary.usc.edu/cdm/ref/collection/p15799coll65/id/25296">Link</a>.</p>
+<div class="formblock" id="choosetext">
+	<h3>Behold! Your creation:</h3>
+	<h2 style="color:#000;text-align:center">{{ newtitle }} by {{ author }} and {{ username }}</h2>
+	<p style="text-align:center">Featuring</p>
+	<table id="featuring">
+	<tr><td>{{ name1 }}</td><td>as</td><td>{{ char1 }}</td></tr>	
+	<tr><td>{{ name2 }}</td><td>as</td><td>{{ char2 }}</td></tr>
+	<tr><td>{{ name3 }}</td><td>as</td><td>{{ char3 }}</td></tr>
+	<tr><td>{{ name4 }}</td><td>as</td><td>{{ char4 }}</td></tr>
+	<tr><td>{{ name5 }}</td><td>as</td><td>{{ char5 }}</td></tr>
+	</table>
+
+<center>
+<input class="btn btn-success" value="Click to generate ebook & send to friends" style="width:500px; margin:20px auto"/>
+</center>
+</div>
+
+<div class="formblock" style="margin-top:100px">
+<p><br/><strong>About this project:</strong> This web app was created as part of <a href="http://codexhackathon.com/">CODEX 2016</a> hackathon by Jihii Jolly, Krishna Gadia, and Robin Camille Davis.</p>
+<p>Image credit: "Group of readers in the library of the Jewish Alliance, ca.1900," California Historical Society Collection, 1860-1960, USC. <a href="http://digitallibrary.usc.edu/cdm/ref/collection/p15799coll65/id/25296">Link</a>.</p>
+</div>
+
+
 </body>
 </html>

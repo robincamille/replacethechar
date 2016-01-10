@@ -49,6 +49,14 @@ summary {
 	width:30%;
 	clear:both;
 	}
+#featuring {
+	margin:5px auto;
+	}
+#featuring td {
+	min-width:100px;
+	text-align:center;
+	padding:4px;
+	}
 audio,
 canvas,
 progress,
@@ -84,6 +92,12 @@ dfn {
 h1 {
   margin: .67em 0;
   font-size: 3em;
+  color:#FFF;
+  text-shadow:-2px 2px #5cb85c;
+}
+h2 {
+  margin: .67em 0;
+  font-size: 1.5em;
   color:#FFF;
   text-shadow:-2px 2px #5cb85c;
 }
