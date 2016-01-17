@@ -1,13 +1,16 @@
-# Robin Camille Davis
+# Robin Camille Davis, Krishna Gadia, Jihii Jolly
 # CODEX 2016
 
 # Top 5 names from a .txt file
 
-##This script asks for the URL to a plain-text file (Project Gutenberg).
-##It outputs the top 5 person names from the text using the
+##This script takes as input the URL to a plain-text file (Project Gutenberg)
+##It prints the top 5 person names from the text using the
 ##Stanford Named Entity Recognition interface in NLTK.
+##It then asks the user to rename these 5 characters and the text itself.
+##It outputs a .txt file with the names & title replaced by user input.
 ##
-##Caveats: first/last names and honorifics not considered
+##Caveats: first vs. last names not considered
+##(allows for familial relationships)
 
 
 import urllib2
@@ -27,7 +30,7 @@ partition = 10000 #set to -1 for whole file
 
 def returnNames(url):
         
-    theurl = "http://www.ccel.org/ccel/bible/kjv.txt"
+    theurl = "https://raw.githubusercontent.com/robincamille/replacethechar/master/texts/biblekjv.txt"
     #raw_input("URL to .txt file: ")
     sourcefile = urllib2.urlopen(theurl)
     source = sourcefile.read()
@@ -76,39 +79,44 @@ locx = "20 books from gutenberg - Sheet1.csv"
 with open(locfolder+locx,'r') as f:
     rows=[L.strip().split(",") for L in f]
 
+"""
 for r in rows:
     for ri in r:
         print ri  #page 1, input needs to be selected
     print    
 
 index = int(raw_input("Enter the selected Book index ")) #selected i/p
-data = rows[index+2]
+"""
+data = rows[-1]
 
-print data[0],  #page 2 book title
+#print data[0],  #page 2 book title
 name,src = returnNames(data[2]) #data[2] is the url to be fetched
-print name  #page 2, input to be typed in
+#print name  #page 2, input to be typed in
 data.append(name)
 
-print data #print everything except src
+#print data #print everything except src
 
-newTitle = raw_input(" Rename the Book ") #page 3
+newTitle = raw_input(" Rename the Book   ") #page 3
 auth = data[1]
-print (newTitle," by ", auth) #page 4 top
+
 
 newNames = []
 namesOfPpl = data[3] #d[3] is the names col
 for n in namesOfPpl: 
-    nn = raw_input("Enter the New Name for "+n)
+    nn = raw_input("Enter the New Name for \t"+n+"\t")
     newNames.append(nn)
 
+print "**"*10,"\n\n"
+print newTitle #page 4 top
 print "Featuring "
 
 OutputFile = src
 for i in range(5):
-    print newNames[i]," as : ",namesOfPpl[i] #page 4 complete
+    print newNames[i],"\tas : ",namesOfPpl[i] #page 4 complete
     OutputFile = re.sub(namesOfPpl[i],newNames[i],OutputFile)
 
 
+print "\n\n","**"*10
 Out = open(newTitle+".txt",'w') #page 5
 Out.write(OutputFile)
 Out.close()
